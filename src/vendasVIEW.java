@@ -10,7 +10,7 @@ public class vendasVIEW extends javax.swing.JFrame {
      */
     public vendasVIEW() {
         initComponents();
-        listarProdutos();
+        listarProdutosVendidos();
     }
 
     /**
@@ -88,6 +88,7 @@ public class vendasVIEW extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
@@ -137,7 +138,7 @@ public class vendasVIEW extends javax.swing.JFrame {
     private javax.swing.JTable listaProdutos;
     // End of variables declaration//GEN-END:variables
 
-    private void listarProdutos(){
+    private void listarProdutosVendidos(){
         
         try {
             ProdutosDAO produtosdao = new ProdutosDAO();
@@ -146,7 +147,7 @@ public class vendasVIEW extends javax.swing.JFrame {
             
             model.setNumRows(0);
             
-            List<ProdutosDTO> listagem = produtosdao.listarProdutos();
+            List<ProdutosDTO> listagem = produtosdao.listarProdutosVendidos("Vendido");
             
             for(int i = 0; i < listagem.size(); i++){
                 model.addRow(new Object[]{
